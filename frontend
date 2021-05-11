@@ -1,0 +1,59 @@
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+public class Calendar extends JFrame implements ActionListener{
+  public Calendar(String title){
+    setTitle(title);
+    JPanel content = new JPanel();
+    content.setLayout(new GridLayout(1, 4, 3, 3)); // since there are four components in the same row
+    JMenu calendarMenu = new JMenu("Calendar"); 
+    JMenuItem calendarSet = new JMenuItem("Set"); 
+    calendarSet.addActionListener(this);
+    calendarMenu.add(calendarSet); 
+    JMenuItem calendarQuit = new JMenuItem("Quit");
+    calendarQuit.addActionListener(this); 
+    calendarMenu.add(calendarQuit); 
+    setJMenuBar(calendarMenu); 
+    content.add(calendarMenu); // adding calendar menu here for set and quit
+    JLabel calendar = new JLabel("2021"); // adding label 2021 here; component 1
+    calendar.setFont(new Font("Script MT Bold", Font.BOLD, 48));
+    calendar.setForeground(Color.PINK);
+    calendar.setBackground(Color.BLACK);
+    content.add(calendar); // adding label day of the week here; component 2
+    JLabel week = new JLabel("Day of the Week"); 
+    week.setFont(new Font("Script MT Bold", Font.BOLD, 24));
+    week.setForeground(Color.PINK);
+    week.setBackground(Color.BLACK);
+    content.add(week); 
+    JComboBox month = new JComboBox(); 
+    month.addItem("January"); month.addItem("February"); month.addItem("March"); month.addItem("April"); month.addItem("May"); month.addItem("June");
+    month.addItem("July"); month.addItem("August"); month.addItem("September"); month.addItem("October"); month.addItem("November"); month.addItem("December"); 
+    month.setFont(new Font("Courier New", Font.PLAIN, 20));
+    month.setForeground(Color.WHITE);
+    month.setBackground(Color.BLACK);
+    content.add(month); // adding combobox of months here; component 3
+    JComboBox day = new JComboBox();
+    day.addItem("1"); day.addItem("2"); day.addItem("3"); day.addItem("4"); day.addItem("5");
+    day.addItem("6"); day.addItem("7"); day.addItem("8"); day.addItem("9"); day.addItem("10");
+    day.addItem("11"); day.addItem("12"); day.addItem("13"); day.addItem("14"); day.addItem("15");
+    day.addItem("16"); day.addItem("17"); day.addItem("18"); day.addItem("19"); day.addItem("20");
+    day.addItem("21"); day.addItem("22"); day.addItem("23"); day.addItem("24"); day.addItem("25");
+    day.addItem("26"); day.addItem("27"); day.addItem("28"); day.addItem("29"); day.addItem("30");
+    day.addItem("31"); 
+    day.setFont(new Font("Courier New", Font.PLAIN, 20));
+    day.setForeground(Color.WHITE);
+    day.setBackground(Color.BLACK);
+    content.add(day); // adding combobox of days 1-31 here; component 4 -- last component required
+    setContentPane(content);
+    setBackground(Color.PINK);
+    setSize(1440,1024);
+    setLocation(0,0);
+    setVisible(true); // showing all the components here 
+  }
+  public static void main(String[] args){
+    new Calendar("2 0 2 1");
+  }
+  public void actionPerformed(ActionEvent e){
+    System.exit(0); 
+  }
+}
